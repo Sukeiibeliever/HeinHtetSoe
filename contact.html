@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Bean Boutique Coffee Shop</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <link href="./css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <header role="banner" aria-label="Main Navigation">
+    <a href="dashboard.html" class="logo" aria-label="Bean Boutique Coffee Shop home"
+      >Bean Boutique Coffee Shop</a
+    >
+    <button id="menu-toggle" aria-label="Toggle navigation menu" type="button" style="display: none; position: absolute; right: 16px; top: 12px; width: 40px; height: 40px; background-color: #8b5cf6; color: white; border: none; border-radius: 4px; font-size: 24px; cursor: pointer; z-index: 1002;">&#9776;</button>
+    <!-- Mobile-only menu button that's always visible on small screens -->
+    <div id="mobile-menu-btn" class="mobile-menu-button" style="position: absolute; right: 16px; top: 12px; width: 40px; height: 40px; background-color: #8b5cf6; color: white; border-radius: 4px; font-size: 24px; cursor: pointer; z-index: 1003; text-align: center; line-height: 40px;">&#9776;</div>
+    <nav class="navbar" role="navigation" aria-label="Primary navigation">
+      <a href="dashboard.html" tabindex="0">Home</a>
+      <a href="menu.html" tabindex="0">Menu</a>
+       <a href="equipment.html" tabindex="0" aria-current="page">Brewing Equipment</a>
+      <a href="about.html" tabindex="0">About</a>
+      <a href="contact.html"  tabindex="0" aria-current="page" >Contact</a>
+       <a href="specialoffer.html" tabindex="0" aria-current="page">Special Offers & Subscription</a>
+       <a href="cart.html" tabindex="0" aria-current="page">Shopping Cart</a>
+    </nav>
+  </header>
+
+  <main class="contact-main">
+    <h1 class="page-title">Contact Us</h1>
+
+    <form id="contact-form" novalidate aria-describedby="form-message">
+      <div>
+        <label for="name">Name *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          aria-required="true"
+          aria-describedby="name-error"
+          required
+          minlength="2"
+          maxlength="50"
+          autocomplete="name"
+          placeholder="Your full name"
+        />
+        <div class="error-message" id="name-error" aria-live="polite"></div>
+      </div>
+
+      <div>
+        <label for="email">Email *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          aria-required="true"
+          aria-describedby="email-error"
+          required
+          autocomplete="email"
+          placeholder="you@example.com"
+        />
+        <div class="error-message" id="email-error" aria-live="polite"></div>
+      </div>
+
+      <div>
+        <label for="message">Message *</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          aria-required="true"
+          aria-describedby="message-error"
+          required
+          minlength="10"
+          maxlength="1000"
+          placeholder="Write your message here..."
+        ></textarea>
+        <div class="error-message" id="message-error" aria-live="polite"></div>
+      </div>
+
+      <button type="submit" class="submit-btn" aria-label="Send your message">
+        Send Message
+      </button>
+      <p role="alert" id="form-message" aria-live="assertive"></p>
+    </form>
+
+    <section class="contact-info" aria-label="Coffee shop contact information">
+      <h2>Contact Information</h2>
+      <p>
+        <strong>Address:</strong> 123 Coffee Lane, San Francisco, CA 94103
+      </p>
+      <p><strong>Phone:</strong> <a href="tel:+14155551234">(415) 555-1234</a></p>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:info@beanboutiquecoffee.com">info@beanboutiquecoffee.com</a>
+      </p>
+      <p><strong>Business Hours:</strong> Mon-Fri 7:00 AM - 8:00 PM</p>
+    </section>
+
+    <div class="location" aria-label="Coffee shop location on Google Maps">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7402.614736969097!2d96.10064288753127!3d21.922732075907078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb73bfe331e3ed%3A0xf7760397bcd99ef7!2sMy%20Hero%20Cafe!5e0!3m2!1sen!2smm!4v1751264118887!5m2!1sen!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </main>
+
+  <footer role="contentinfo" aria-label="Footer with social media links">
+    <nav class="social-links" aria-label="Social media">
+      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook social media link" tabindex="0">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" alt="Facebook" loading="lazy">
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram social media link" tabindex="0">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/132px-Instagram_logo_2016.svg.png" alt="Instagram" loading="lazy">
+      </a>
+      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter social media link" tabindex="0">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png" alt="Twitter" loading="lazy">
+      </a>
+      <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube social media link" tabindex="0">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube" loading="lazy">
+      </a>
+    </nav>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  // Immediate execution to ensure menu toggle is visible and functional
+  document.addEventListener('DOMContentLoaded', function() {
+    var menuToggle = document.getElementById('menu-toggle');
+    var mobileMenuButton = document.getElementById('mobile-menu-btn');
+    var navbar = document.querySelector('.navbar');
+    
+    // Add click event to mobile menu button
+    if (mobileMenuButton) {
+      mobileMenuButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        navbar.classList.toggle('active');
+        console.log('Mobile menu button clicked');
+      });
+      
+      // Add touch event for mobile devices
+      mobileMenuButton.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        navbar.classList.toggle('active');
+        console.log('Mobile menu button touched');
+      }, {passive: false});
+      
+      console.log('Mobile menu button event handlers added');
+    }
+    
+    function updateMenuVisibility() {
+      if (window.innerWidth <= 767) {
+        if (mobileMenuButton) {
+          mobileMenuButton.style.display = 'block';
+          console.log('Mobile menu button set to display:block');
+        }
+      } else {
+        if (mobileMenuButton) {
+          mobileMenuButton.style.display = 'none';
+        }
+      }
+    }
+    
+    // Run on page load
+    updateMenuVisibility();
+    
+    // Run on window resize
+    window.addEventListener('resize', updateMenuVisibility);
+  });
+  </script>
+  <script>
+    // Form validation and feedback logic
+    const form = document.getElementById('contact-form');
+    const nameInput = form.elements['name'];
+    const emailInput = form.elements['email'];
+    const messageInput = form.elements['message'];
+
+    const nameError = document.getElementById('name-error');
+    const emailError = document.getElementById('email-error');
+    const messageError = document.getElementById('message-error');
+    const formMessage = document.getElementById('form-message');
+
+    function validateEmail(email) {
+      // Simple email regex
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      // Clear previous errors
+      nameError.textContent = '';
+      emailError.textContent = '';
+      messageError.textContent = '';
+      formMessage.textContent = '';
+
+      // Name validation
+      if (!nameInput.value.trim()) {
+        nameError.textContent = 'Please enter your name';
+        valid = false;
+      } else if (nameInput.value.trim().length < 2) {
+        nameError.textContent = 'Name must be at least 2 characters';
+        valid = false;
+      }
+
+      // Email validation
+      if (!emailInput.value.trim()) {
+        emailError.textContent = 'Please enter your email address';
+        valid = false;
+      } else if (!validateEmail(emailInput.value.trim())) {
+        emailError.textContent = 'Please enter a valid email address';
+        valid = false;
+      }
+
+      // Message validation
+      if (!messageInput.value.trim()) {
+        messageError.textContent = 'Please enter your message';
+        valid = false;
+      } else if (messageInput.value.trim().length < 10) {
+        messageError.textContent = 'Message must be at least 10 characters';
+        valid = false;
+      }
+
+      if (!valid) {
+        // Focus the first error field for accessibility
+        if (nameError.textContent) {
+          nameInput.focus();
+        } else if (emailError.textContent) {
+          emailInput.focus();
+        } else if (messageError.textContent) {
+          messageInput.focus();
+        }
+        return;
+      }
+
+      // Simulate sending
+      formMessage.style.color = '#4ade80'; // green
+      formMessage.textContent = 'Sending message...';
+
+      setTimeout(() => {
+        formMessage.textContent = 'Thank you for contacting Modern Coffee Shop! We will get back to you shortly.';
+        form.reset();
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
+

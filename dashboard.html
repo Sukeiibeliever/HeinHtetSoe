@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bean Boutique Coffee Shop</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link href="./css/main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header role="banner" aria-label="Main Navigation">
+      <a href="#" class="logo" aria-label="Bean Boutique Coffee Shop home"
+        >Bean Boutique Coffee Shop</a
+      >
+      <button
+        id="menu-toggle"
+        aria-label="Toggle navigation menu"
+        type="button"
+        style="
+          display: none;
+          position: absolute;
+          right: 16px;
+          top: 12px;
+          width: 40px;
+          height: 40px;
+          background-color: #8b5cf6;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          font-size: 24px;
+          cursor: pointer;
+          z-index: 1002;
+        "
+      >
+        &#9776;
+      </button>
+      <!-- Mobile-only menu button that's always visible on small screens -->
+      <div
+        id="mobile-menu-btn"
+        class="mobile-menu-button"
+        style="
+          position: absolute;
+          right: 16px;
+          top: 12px;
+          width: 40px;
+          height: 40px;
+          background-color: #8b5cf6;
+          color: white;
+          border-radius: 4px;
+          font-size: 24px;
+          cursor: pointer;
+          z-index: 1003;
+          text-align: center;
+          line-height: 40px;
+        "
+      >
+        &#9776;
+      </div>
+      <nav class="navbar" role="navigation" aria-label="Primary navigation">
+        <a href="dashboard.html" tabindex="0">Home</a>
+        <a href="menu.html" tabindex="0">Menu</a>
+        <a href="equipment.html" class="active" tabindex="0" aria-current="page"
+          >Brewing Equipment</a
+        >
+        <a href="about.html" tabindex="0">About</a>
+        <a href="contact.html" tabindex="0">Contact</a>
+        <a
+          href="specialoffer.html"
+          class="active"
+          tabindex="0"
+          aria-current="page"
+          >Special Offers & Subscription</a
+        >
+        <a href="cart.html" class="active" tabindex="0" aria-current="page"
+          >Shopping Cart</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-text">
+          <h1 id="hero-title">Welcome to Bean Boutique Coffee Shop</h1>
+          <p>
+            Experience the finest artisan coffee brewed fresh every day in a
+            cozy, modern atmosphere.
+          </p>
+          <a href="menu.html" class="hero-btn" aria-label="Explore our menu"
+            >Explore Our Menu</a
+          >
+        </div>
+        <div class="hero-slideshow" aria-label="Slideshow of coffee images">
+          <img
+            class="slide active"
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a332a18e-4ed1-4b7e-ad23-dbdcc642da32.png"
+            alt="Latte coffee on a wooden table"
+          />
+          <img
+            class="slide"
+            src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d150e9ff-b74a-4b8c-9440-276763940f10.png"
+            alt="Espresso shot with crema"
+          />
+          <img
+            class="slide"
+            src="./images/coffeebean.jpg"
+            alt="Coffee beans in a sack"
+          />
+        </div>
+      </section>
+      <section class="events-section">
+        <div class="container">
+          <h2 class="section-title">Featured Event</h2>
+          <p class="section-subtitle">Join us for a special evening</p>
+
+          <div class="events-grid">
+            <!-- Single Featured Event -->
+            <div class="event-card">
+              <div class="event-date">
+                <span class="date-day">15</span>
+                <span class="date-month">JUN</span>
+              </div>
+              <div class="event-info">
+                <h3 class="event-title">Live Jazz Night</h3>
+                <div class="event-meta">
+                  <span class="event-time"
+                    ><i class="fas fa-clock"></i> 7:00 PM - 10:00 PM</span
+                  >
+                  <span class="event-price"
+                    ><i class="fas fa-tag"></i> $10 cover</span
+                  >
+                </div>
+                <p class="event-desc">
+                  Enjoy an evening of smooth jazz with local trio "The Brew
+                  Notes" in our cozy cafe atmosphere. Limited seating available.
+                </p>
+                <button class="btn event-btn">Reserve a Table</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="view-all">
+            <a href="event.html" class="view-all-link"
+              >See All Events <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="location" aria-labelledby="location-title">
+        <h2 id="location-title">Find Us Here</h2>
+        <div
+          class="map-container"
+          role="region"
+          aria-label="Coffee shop location on Google Maps"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7402.614736969097!2d96.10064288753127!3d21.922732075907078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb73bfe331e3ed%3A0xf7760397bcd99ef7!2sMy%20Hero%20Cafe!5e0!3m2!1sen!2smm!4v1751264118887!5m2!1sen!2smm"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer role="contentinfo" aria-label="Footer with social media links">
+      <nav class="social-links" aria-label="Social media">
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener"
+          aria-label="Facebook social media link"
+          tabindex="0"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"
+            alt="Facebook"
+            loading="lazy"
+          />
+        </a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram social media link"
+          tabindex="0"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/132px-Instagram_logo_2016.svg.png"
+            alt="Instagram"
+            loading="lazy"
+          />
+        </a>
+        <a
+          href="https://twitter.com"
+          target="_blank"
+          rel="noopener"
+          aria-label="Twitter social media link"
+          tabindex="0"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png"
+            alt="Twitter"
+            loading="lazy"
+          />
+        </a>
+        <a
+          href="https://youtube.com"
+          target="_blank"
+          rel="noopener"
+          aria-label="YouTube social media link"
+          tabindex="0"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png"
+            alt="YouTube"
+            loading="lazy"
+          />
+        </a>
+      </nav>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      // Immediate execution to ensure menu toggle is visible and functional
+      document.addEventListener("DOMContentLoaded", function () {
+        var menuToggle = document.getElementById("menu-toggle");
+        var mobileMenuButton = document.getElementById("mobile-menu-btn");
+        var navbar = document.querySelector(".navbar");
+
+        // Add click event to mobile menu button
+        if (mobileMenuButton) {
+          mobileMenuButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            navbar.classList.toggle("active");
+            console.log("Mobile menu button clicked");
+          });
+
+          // Add touch event for mobile devices
+          mobileMenuButton.addEventListener(
+            "touchstart",
+            function (e) {
+              e.preventDefault();
+              navbar.classList.toggle("active");
+              console.log("Mobile menu button touched");
+            },
+            { passive: false }
+          );
+
+          console.log("Mobile menu button event handlers added");
+        }
+
+        function updateMenuVisibility() {
+          if (window.innerWidth <= 767) {
+            if (mobileMenuButton) {
+              mobileMenuButton.style.display = "block";
+              console.log("Mobile menu button set to display:block");
+            }
+          } else {
+            if (mobileMenuButton) {
+              mobileMenuButton.style.display = "none";
+            }
+          }
+        }
+
+        // Run on page load
+        updateMenuVisibility();
+
+        // Run on window resize
+        window.addEventListener("resize", updateMenuVisibility);
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        // Hero Slideshow Logic
+        let slides = $(".hero-slideshow .slide");
+        let currentIndex = 0;
+
+        setInterval(function () {
+          slides.eq(currentIndex).removeClass("active");
+          currentIndex = (currentIndex + 1) % slides.length;
+          slides.eq(currentIndex).addClass("active");
+        }, 4000); // change every 4 seconds
+
+        // Ensure menu toggle is visible on mobile
+        function checkMobileView() {
+          if (window.innerWidth <= 767) {
+            $("#menu-toggle").show();
+            console.log("Mobile view detected, menu toggle should be visible");
+          }
+        }
+
+        // Run on page load
+        checkMobileView();
+
+        // Run on window resize
+        $(window).resize(checkMobileView);
+
+        // Menu Toggle Logic - jQuery
+        $("#menu-toggle").on("click touchstart", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          $(".navbar").toggleClass("active");
+          console.log("Menu toggle clicked - jQuery");
+          return false;
+        });
+
+        // Fallback vanilla JS for mobile devices
+        const menuToggle = document.getElementById("menu-toggle");
+        const navbar = document.querySelector(".navbar");
+
+        // Make sure menu toggle is properly initialized
+        if (menuToggle) {
+          console.log("Menu toggle element found");
+
+          // Click event
+          menuToggle.addEventListener(
+            "click",
+            function (e) {
+              e.preventDefault();
+              navbar.classList.toggle("active");
+              console.log("Menu toggle clicked - Vanilla JS");
+            },
+            false
+          );
+
+          // Touch events for mobile
+          menuToggle.addEventListener(
+            "touchstart",
+            function (e) {
+              e.preventDefault();
+              navbar.classList.toggle("active");
+              console.log("Menu toggle touched - Mobile");
+            },
+            { passive: false }
+          );
+        } else {
+          console.error("Menu toggle element not found!");
+        }
+      });
+    </script>
+  </body>
+</html>

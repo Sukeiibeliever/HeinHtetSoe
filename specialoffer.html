@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Special Offers & Subscription - Bean Boutique Coffee Shop</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+        rel="stylesheet"
+    />
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+    />
+    <link href="./css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+    <header role="banner" aria-label="Main Navigation">
+        <a href="dashboard.html" class="logo" aria-label="Bean Boutique Coffee Shop home">Bean Boutique Coffee</a>
+        <button id="menu-toggle" aria-label="Toggle navigation menu" type="button" style="display: none; position: absolute; right: 16px; top: 12px; width: 40px; height: 40px; background-color: #8b5cf6; color: white; border: none; border-radius: 4px; font-size: 24px; cursor: pointer; z-index: 1002;">&#9776;</button>
+        <!-- Mobile-only menu button that's always visible on small screens -->
+        <div id="mobile-menu-btn" class="mobile-menu-button" style="position: absolute; right: 16px; top: 12px; width: 40px; height: 40px; background-color: #8b5cf6; color: white; border-radius: 4px; font-size: 24px; cursor: pointer; z-index: 1003; text-align: center; line-height: 40px;">&#9776;</div>
+        <nav class="navbar" role="navigation" aria-label="Primary navigation">
+        <a href="dashboard.html" tabindex="0">Home</a>
+        <a href="menu.html" tabindex="0">Menu</a>
+        <a href="equipment.html" class="active" tabindex="0" aria-current="page">Brewing Equipment</a>
+        <a href="about.html" tabindex="0">About</a>
+        <a href="contact.html" tabindex="0">Contact</a>
+        <a href="specialoffer.html" class="active" tabindex="0" aria-current="page">Special Offers & Subscription</a>
+        <a href="cart.html" class="active" tabindex="0" aria-current="page">Shopping Cart</a>
+        
+        </nav>
+    </header>
+
+    <main class="offer-main">
+        <h1 class="page-title">Special Offers</h1>
+        <section class="special-offer" aria-label="Current special offer">
+        <h2>Spring Coffee Festival - 20% Off All Brews!</h2>
+        <p>Celebrate spring with us! Enjoy 20% off all coffee drinks from March 1st to March 31st. Use code <strong>SPRING20</strong> at checkout or mention it in store.</p>
+        <button class="btn-claim" type="button" aria-label="Claim spring special offer">Claim Offer</button>
+        </section>
+
+        <section class="newsletter-section" aria-labelledby="newsletter-title">
+            <h2 id="newsletter-title" class="newsletter-title">
+                <span class="title-part-1">Stay updated with the latest news</span>
+                <span class="title-part-2">and offers</span>
+            </h2>
+            <p class="newsletter-description">Sign up for our newsletter and receive exclusive discounts, event invites, and the freshest coffee updates straight to your inbox.</p>
+            <div class="newsletter-form-container">
+                <form class="newsletter-form" id="subscription-form" novalidate>
+                    <input
+                        type="email"
+                        id="sub-email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        aria-label="Email address"
+                        required
+                        autocomplete="email"
+                    />
+                    <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
+                </form>
+                <p class="subscription-message" aria-live="polite" id="sub-message"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo" aria-label="Footer with social media links">
+        <nav class="social-links" aria-label="Social media">
+              <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook social media link" tabindex="0">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png" alt="Facebook" loading="lazy">
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram social media link" tabindex="0">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/132px-Instagram_logo_2016.svg.png" alt="Instagram" loading="lazy">
+      </a>
+      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter social media link" tabindex="0">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png" alt="Twitter" loading="lazy">
+      </a>
+      <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube social media link" tabindex="0">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png" alt="YouTube" loading="lazy">
+      </a>
+        </nav>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    // Immediate execution to ensure menu toggle is visible and functional
+    document.addEventListener('DOMContentLoaded', function() {
+        var menuToggle = document.getElementById('menu-toggle');
+        var mobileMenuButton = document.getElementById('mobile-menu-btn');
+        var navbar = document.querySelector('.navbar');
+        
+        // Add click event to mobile menu button
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                navbar.classList.toggle('active');
+                console.log('Mobile menu button clicked');
+            });
+            
+            // Add touch event for mobile devices
+            mobileMenuButton.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                navbar.classList.toggle('active');
+                console.log('Mobile menu button touched');
+            }, {passive: false});
+            
+            console.log('Mobile menu button event handlers added');
+        }
+        
+        function updateMenuVisibility() {
+            if (window.innerWidth <= 767) {
+                if (mobileMenuButton) {
+                    mobileMenuButton.style.display = 'block';
+                    console.log('Mobile menu button set to display:block');
+                }
+            } else {
+                if (mobileMenuButton) {
+                    mobileMenuButton.style.display = 'none';
+                }
+            }
+        }
+        
+        // Run on page load
+        updateMenuVisibility();
+        
+        // Run on window resize
+        window.addEventListener('resize', updateMenuVisibility);
+    });
+    </script>
+    <script>
+        const form = document.getElementById('subscription-form');
+        const emailInput = form.elements['email'] || document.getElementById('sub-email');
+        const messageEl = document.getElementById('sub-message');
+
+        function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+        }
+
+        form.addEventListener('submit', e => {
+        e.preventDefault();
+        messageEl.textContent = '';
+        const email = emailInput.value.trim();
+        if (!email) {
+            messageEl.style.color = '#e11d48'; // red
+            messageEl.textContent = 'Please enter your email address.';
+            emailInput.focus();
+            return;
+        }
+        if (!validateEmail(email)) {
+            messageEl.style.color = '#e11d48';
+            messageEl.textContent = 'Please enter a valid email address.';
+            emailInput.focus();
+            return;
+        }
+        messageEl.style.color = '#22c55e'; // green
+        messageEl.textContent = 'Subscribing...';
+
+        // Simulate async subscription process
+        setTimeout(() => {
+            messageEl.textContent = 'Thank you for subscribing! Check your inbox for a confirmation email.';
+            form.reset();
+        }, 1500);
+        });
+
+        // Button alert for claim offer
+        const claimBtn = document.querySelector('.btn-claim');
+        claimBtn.addEventListener('click', () => {
+        alert('Special offer code SPRING20 applied! Enjoy your discount.');
+        });
+    </script>
+    </body>
+    </html>
+
