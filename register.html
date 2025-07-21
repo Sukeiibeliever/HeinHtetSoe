@@ -117,7 +117,8 @@
         signupForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        const email = document.getElementById('email').value;
+        const fullname = document.getElementById('fullname').value.trim();
+        const email = document.getElementById('email').value.trim().toLowerCase();
         const password = passwordInput.value;
         const confirmPassword = confirmPasswordInput.value;
         
@@ -148,16 +149,21 @@
             return;
         }
         
-        // Simulate signup process
-        statusMessage.textContent = 'Creating your account...';
+        // Check for duplicate email
+        let users = JSON.parse(localStorage.getItem('users') || '[]');
+        if (users.some(user => user.email === email)) {
+            statusMessage.textContent = 'An account with this email already exists.';
+            statusMessage.className = 'status-message error';
+            return;
+        }
+        
+        // Save new user
+        users.push({ fullname, email, password });
+        localStorage.setItem('users', JSON.stringify(users));
+        statusMessage.textContent = 'Account created successfully! Redirecting to login...';
+        statusMessage.className = 'status-message success';
         setTimeout(() => {
-            statusMessage.textContent = 'Account created successfully! Welcome to Modern Coffee.';
-            statusMessage.className = 'status-message success';
-            
-            // In a real app, you would redirect or log the user in here
-            setTimeout(() => {
-            alert('Simulated successful registration! In a real app, this would log you in.');
-            }, 1000);
+            window.location.href = 'index.html';
         }, 1500);
         });
     </script>

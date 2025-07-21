@@ -163,19 +163,18 @@
         statusMessage.textContent = "Signing in...";
         statusMessage.className = "status-message";
 
-        // Simulate login process
         setTimeout(() => {
-          const email = document.getElementById("email").value;
-
-          // Simple validation for demo purposes
-          if (email && passwordInput.value.length >= 8) {
+          const email = document.getElementById("email").value.trim().toLowerCase();
+          const password = passwordInput.value;
+          let users = JSON.parse(localStorage.getItem('users') || '[]');
+          const user = users.find(u => u.email === email && u.password === password);
+          if (user) {
             statusMessage.textContent = "Login successful! Redirecting...";
             statusMessage.className = "status-message success";
-            // In a real app, you would redirect here
+            // Save session (for demo)
+            localStorage.setItem('currentUser', JSON.stringify(user));
             setTimeout(() => {
-              alert(
-                "Simulated successful login! In a real app, this would redirect."
-              );
+              window.location.href = 'dashboard.html';
             }, 1000);
           } else {
             statusMessage.textContent =
