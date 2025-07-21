@@ -91,6 +91,32 @@
       <p role="alert" id="form-message" aria-live="assertive"></p>
     </form>
 
+    <!-- Customer Reviews Section -->
+    <section class="customer-reviews" aria-label="Customer Reviews">
+      <h2>Customer Reviews</h2>
+      <div id="reviews-list">
+        <!-- Reviews will be inserted here -->
+      </div>
+      <button id="add-review-btn" class="submit-btn" type="button">Add Review</button>
+      <div id="review-modal" class="review-modal" style="display:none;">
+        <div class="review-modal-content">
+          <span id="close-review-modal" class="review-close-btn">&times;</span>
+          <h3>Leave a Review</h3>
+          <form id="review-form">
+            <div>
+              <label for="reviewer-name">Your Name</label>
+              <input type="text" id="reviewer-name" name="reviewer-name" required maxlength="50" placeholder="Your name" />
+            </div>
+            <div>
+              <label for="review-text">Your Review</label>
+              <textarea id="review-text" name="review-text" required minlength="5" maxlength="300" placeholder="Share your experience..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Review</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section class="contact-info" aria-label="Coffee shop contact information">
       <h2>Contact Information</h2>
       <p>
@@ -247,6 +273,67 @@
         form.reset();
       }, 1500);
     });
+  </script>
+  <script>
+    // Customer Review Logic
+    const reviewsList = document.getElementById('reviews-list');
+    const addReviewBtn = document.getElementById('add-review-btn');
+    const reviewModal = document.getElementById('review-modal');
+    const closeReviewModal = document.getElementById('close-review-modal');
+    const reviewForm = document.getElementById('review-form');
+
+    // Load reviews from localStorage
+    function loadReviews() {
+      const reviews = JSON.parse(localStorage.getItem('customerReviews') || '[]');
+      reviewsList.innerHTML = reviews.length
+        ? reviews.map((r, i) => `<div class='review'><strong>${r.name}</strong><p>${r.text}</p><button class='remove-review-btn' data-index='${i}'>Remove</button></div>`).join('')
+        : '<p>No reviews yet. Be the first to leave one!</p>';
+      // Add event listeners for remove buttons
+      document.querySelectorAll('.remove-review-btn').forEach(btn => {
+        btn.onclick = function() {
+          const idx = parseInt(this.getAttribute('data-index'));
+          const reviews = JSON.parse(localStorage.getItem('customerReviews') || '[]');
+          reviews.splice(idx, 1);
+          localStorage.setItem('customerReviews', JSON.stringify(reviews));
+          loadReviews();
+        };
+      });
+    }
+
+    // Show modal
+    addReviewBtn.onclick = () => {
+      reviewModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        reviewModal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('reviewer-name').focus();
+      }, 50);
+    };
+    closeReviewModal.onclick = () => {
+      reviewModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    };
+    reviewModal.onclick = (e) => {
+      if (e.target === reviewModal) closeReviewModal.onclick();
+    };
+
+    // Handle review form submit
+    reviewForm.onsubmit = (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reviewer-name').value.trim();
+      const text = document.getElementById('review-text').value.trim();
+      if (!name || !text) return;
+      const reviews = JSON.parse(localStorage.getItem('customerReviews') || '[]');
+      reviews.unshift({ name, text });
+      localStorage.setItem('customerReviews', JSON.stringify(reviews));
+      loadReviews();
+      reviewModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      reviewForm.reset();
+    };
+
+    // Initial load
+    loadReviews();
   </script>
 </body>
 </html>
